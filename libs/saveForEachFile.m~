@@ -1,0 +1,51 @@
+lists = {'ai', 'cg', 'cn', 'db', 'hpc', 'hu', 'infosec', 'inter', 'se', 'tc'};
+len = length(list);
+load('datasets/allNetwork.mat');
+src = ai_src;
+dst = ai_dst;
+
+for i = 1:len
+    switch i
+        case 1
+            src = ai_src;
+            dst = ai_dst;
+            break;
+        case 2
+            src = cg_src;
+            dst = cg_dst;
+            break;
+        case 3
+            src = cn_src;
+            dst = cn_dst;
+            break;
+        case 4
+            src = db_src;
+            dst = db_dst;
+            break;
+        case 5
+            src = hpc_src;
+            dst = hpc_dst;
+            break;
+        case 6
+            src = hu_src;
+            dst = hu_dst;
+            break;
+        case 7
+            src = infosec_src;
+            dst = infosec_dst;
+            break;
+        case 8
+            src = inter_src;
+            dst = inter_dst;
+            break;
+        case 9
+            src = se_src;
+            dst = se_dst;
+            break;
+        case 10
+            src = tc_src;
+            dst = tc_dst;
+            break;
+    end;
+    save(sprintc('datasets/%s.mat'
+end;
