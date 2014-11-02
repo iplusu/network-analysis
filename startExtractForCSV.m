@@ -6,7 +6,8 @@ uToIP = unique([uToSIP;uToDIP]);
 format long;
 for i = 1:length(flows)
     fi = sprintf('datasets/flows%s.mat', flows{i});
-    fo = sprintf('r/rFrom%s.csv', flows{i});
+    fosrc = sprintf('r/rFrom%ssrc.csv', flows{i});
+    fodst = sprintf('r/rFrom%sdst.csv', flows{i});
     load(fi);
     disp(fi);
     
@@ -18,6 +19,7 @@ for i = 1:length(flows)
     [t, nsIP] = ismember(sIPOut, uFromIP);
     [t, ndIP] = ismember(dIPOut, uFromIP);
     
-    tmp = [nsIP';ndIP'];
-    dlmwrite(fo, tmp, 'delimiter', ',', 'precision', 12);
+%     tmp = [nsIP ndIP];
+    dlmwrite(fosrc, nsIP, 'delimiter', ',', 'precision', 12);
+    dlmwrite(fodst, ndIP, 'delimiter', ',', 'precision', 12);
 end;
