@@ -8,6 +8,7 @@ g <- graph.edgelist(el, directed=T)
 
 elP <- el[1:3000,]
 gP <- graph.edgelist(elP, directed=T)
+gP <- graph.edgelist(el, directed=T)
 
 hist(log(degree(gP)+1), col='lightblue', xlab="Vertex Degree", ylab="Freqyency", main="Graph Degree Distribution")
 
@@ -18,6 +19,15 @@ for (i in 1:length(V(gP))){
   if(V(gP)[i]$name %in% elP[,2]){
     V(gP)[i]$type <- TRUE
   }
+}
+
+for (i in 1:length(V(gP))){
+	if(V(gP)[i]$name %in% el[,1]){
+		V(gP)[i]$type <- FALSE
+	}
+	if(V(gP)[i]$name %in% el[,2]){
+		V(gP)[i]$type <- TRUE
+	}
 }
 
 for (i in 1:length(V(g))){
